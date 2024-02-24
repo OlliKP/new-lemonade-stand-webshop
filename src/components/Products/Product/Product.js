@@ -2,30 +2,38 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Product.module.css";
 
-const Product = ({ productData}) => {
+import { connect } from "react-redux";
+import {
+  addToCart,
+  loadCurrentItem,
+} from "../../../redux/Shopping/shopping-actions";
+
+const Product = ({ productData, addToCart, loadCurrentItem }) => {
   return (
     <div className={styles.product}>
       <img
         className={styles.product__image}
-        src="https://images.pexels.com/photos/18592820/pexels-photo-18592820/free-photo-of-landskab-solrig-mark-bane.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="a picture"
+        src={productData.image}
+        alt={productData.title}
       />
 
       <div className={styles.product__details}>
-        <p className={styles.details__title}>This is something</p>
-        <p className={styles.details__desc}>This is a description</p>
-        <p className={styles.details__price}>DKK 750</p>
+        <p className={styles.details__title}>{productData.title}</p>
+        <p className={styles.details__desc}>{productData.description}</p>
+        <p className={styles.details__price}>DKK {productData.price}</p>
       </div>
 
       <div className={styles.product__buttons}>
-        <Link to={`/product/someID`}>
+        <Link to={`/product/${productData.id}`}>
           <button
+            onClick={() => loadCurrentItem(productData)}
             className={`${styles.buttons__btn} ${styles.buttons__view}`}
           >
             View Item
           </button>
         </Link>
         <button
+          onClick={() => addToCart(productData.id)}
           className={`${styles.buttons__btn} ${styles.buttons__add}`}
         >
           Add To Cart
@@ -35,4 +43,11 @@ const Product = ({ productData}) => {
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);

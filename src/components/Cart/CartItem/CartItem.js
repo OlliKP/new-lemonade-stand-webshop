@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./CartItem.module.css";
 
-const CartItem = () => {
+import { connect } from "react-redux";
+import {
+  removeFromCart,
+  adjustQty,
+} from "../../../redux/Shopping/shopping-actions";
+
+const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
+  const [input, setInput] = useState(itemData.qty);
+
+  const onChangeHandler = (e) => {
+    setInput(e.target.value);
+    adjustQty(itemData.id, e.target.value);
+  };
+
   return (
     <div className={styles.cartItem}>
       <img
         className={styles.cartItem__image}
-        src="https://images.pexels.com/photos/18592820/pexels-photo-18592820/free-photo-of-landskab-solrig-mark-bane.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="image of something"
+        src={itemData.image}
+        alt={itemData.title}
       />
       <div className={styles.cartItem__details}>
-        <p className={styles.details__title}>This is something</p>
-        <p className={styles.details__desc}>This is the description</p>
-        <p className={styles.details__price}>DKK 150</p>
+        <p className={styles.details__title}>{itemData.title}</p>
+        <p className={styles.details__desc}>{itemData.description}</p>
+        <p className={styles.details__price}>DKK {itemData.price}</p>
       </div>
       <div className={styles.cartItem__actions}>
         <div className={styles.cartItem__qty}>
@@ -22,20 +35,29 @@ const CartItem = () => {
             type="number"
             id="qty"
             name="qty"
-            value="1"
+            value={input}
+            onChange={onChangeHandler}
           />
         </div>
         <button
+          onClick={() => removeFromCart(itemData.id)}
           className={styles.actions__deleteItemBtn}
         >
           <img
-            src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/buy-512.png"
+            src="https://cdn-icons-png.flaticon.com/512/5525/5525518.png"
             alt=""
           />
         </button>
       </div>
     </div>
   );
-}
+};
 
-export default CartItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+    adjustQty: (id, value) => dispatch(adjustQty(id, value)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CartItem);
