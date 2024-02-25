@@ -11,33 +11,35 @@ import {
 const Product = ({ productData, addToCart, loadCurrentItem }) => {
   return (
     <div className={styles.product}>
-      <img
-        className={styles.product__image}
-        src={productData.image}
-        alt={productData.title}
-      />
-
-      <div className={styles.product__details}>
-        <p className={styles.details__title}>{productData.title}</p>
-        <p className={styles.details__desc}>{productData.description}</p>
-        <p className={styles.details__price}>DKK {productData.price}</p>
+      <div className={styles.image_container}>
+        <img
+          className={styles.product__image}
+          src={productData.image}
+          alt={productData.title}
+        />
       </div>
 
-      <div className={styles.product__buttons}>
-        <Link to={`/product/${productData.id}`}>
+      <div className={styles.product__content}>
+        <div className={styles.product__details}>
+          <p className={styles.details__title}>{productData.title}</p>
+          <p className={styles.details__price}>DKK {productData.price},-</p>
+        </div>
+        <div className={styles.product__buttons}>
           <button
-            onClick={() => loadCurrentItem(productData)}
-            className={`${styles.buttons__btn} ${styles.buttons__view}`}
+            onClick={() => addToCart(productData.id)}
+            className={`${styles.buttons__btn} ${styles.buttons__add}`}
           >
-            View Item
+            Tilføj +
           </button>
-        </Link>
-        <button
-          onClick={() => addToCart(productData.id)}
-          className={`${styles.buttons__btn} ${styles.buttons__add}`}
-        >
-          Add To Cart
-        </button>
+          <Link to={`/product/${productData.id}`}>
+            <button
+              onClick={() => loadCurrentItem(productData)}
+              className={`${styles.buttons__btn} ${styles.buttons__view}`}
+            >
+              Detaljer
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

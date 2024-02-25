@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./Products.module.css";
 
 import { connect } from "react-redux";
@@ -7,11 +7,14 @@ import Product from "./Product/Product";
 
 const Products = ({ products }) => {
   return (
-    <div className={styles.products}>
-      {products.map((prod) => (
-      <Product key={prod.id} productData={prod}/>
-      ))}
-    </div>
+    <Fragment>
+      <h1 className={styles.header_h1}>Vælg dine ingredienser:</h1>
+      <div className={styles.products}>
+        {products.map((prod) => (
+          <Product key={prod.id} productData={prod} />
+        ))}
+      </div>
+    </Fragment>
   );
 };
 

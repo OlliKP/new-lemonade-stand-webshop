@@ -36,13 +36,13 @@ const Cart = ({ cart }) => {
         ))}
       </div>
       <div className={styles.cart__summary}>
-        <h4 className={styles.summary__title}>Cart Summary</h4>
+        <h4 className={styles.summary__title}>Din kurv</h4>
         <div className={styles.summary__price}>
           <span>TOTAL: ({totalItems})</span>
           <span>DKK {totalPrice}</span>
         </div>
         <button className={styles.summary__checkoutBtn}>
-          Proceed To Checkout
+          Betal
         </button>
       </div>
     </div>

@@ -47,7 +47,7 @@
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   background: var(--primary-color);
-  color: var(--light-color);
+  color: var(--secondary-color);
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
