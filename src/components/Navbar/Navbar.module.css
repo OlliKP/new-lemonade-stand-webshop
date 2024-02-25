@@ -8,10 +8,11 @@
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 5;
 }
 
 .navbar__logo {
-  font-size: 40px;
+  font-size: 1.8rem;
   font-weight: bold;
   color: var(--secondary-color);
   font-family: var(--primary-font);
@@ -19,13 +20,13 @@
 
 .navbar__cart {
   background: #fff;
-  width: 180px;
+  width: 100px;
   border: none;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
@@ -34,9 +35,10 @@
 }
 
 .cart__title {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   color: var(--dark-color);
+  display: none;
 }
 
 .cart__image {
@@ -55,4 +57,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .navbar__logo {
+    font-size: 40px;
+  }
+
+  .cart__title {
+    display: block;
+    padding: 0.8rem;
+  }
+
+  .navbar__cart {
+    width: 180px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .navbar__cart {
+    width: 12rem;
+  }
+
+  .cart__counter {
+    margin-right: 0.8rem;
+  }
 }

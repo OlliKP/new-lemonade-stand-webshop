@@ -1,5 +1,6 @@
 {
   "name": "redux-example",
+  "homepage": "https://ollikp.dk/lemonade",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

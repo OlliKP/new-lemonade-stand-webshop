@@ -3,17 +3,27 @@
   display: flex;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;
-  height: 200px;
+  height: 140px;
 }
 
 .cartItem__imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  border-radius: 10px;
+  width: 40%;
 }
 
 .cartItem__image {
-  width: 350px;
-  object-fit: contain;
+  max-width: 300px;
+  object-fit: cover;
   border-radius: 10px;
+}
+
+.cartItem__content {
+  display: flex;
+  flex-direction: column;
 }
 
 .cartItem__details {
@@ -25,25 +35,22 @@
 }
 
 .details__title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
-}
-
-.details__desc {
-  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .details__price {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .cartItem__actions {
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
-  padding: 0.6rem;
+  padding: 1rem;
 }
 
 .cartItem__qty {
@@ -54,28 +61,54 @@
 .cartItem__qty input {
   padding: 10px;
   margin-left: 0.4rem;
-  width: 60px;
+  width: 50px;
   border-radius: 10px;
   border: 1px solid var(--secondary-color);
   outline: none;
+  margin-left: 0.7rem;
 }
 
 .actions__deleteItemBtn {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
   cursor: pointer;
-  transition: all ease-in-out 0.7s;
+  transition: all ease-in-out 0.8s;
   outline: none;
+  margin-left: 0.7rem;
 }
 
 .actions__deleteItemBtn:hover {
   transform: scale(1.2) rotate(360deg);
-  background-color: rgb(209, 15, 15);
+  background-color: rgba(255, 0, 0, 0.189);
+  transition: all ease-in-out 0.4s;
 }
 
 .actions__deleteItemBtn img {
   width: 25px;
   height: 25px;
+}
+
+@media only screen and (min-width: 800px) {
+  .cartItem {
+    height: 150px;
+  }
+
+  .cartItem__imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+   
+  }
+
+  .cartItem__image {
+    width: 350px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  
 }

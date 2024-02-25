@@ -7,11 +7,13 @@ import { addToCart } from "../../redux/Shopping/shopping-actions";
 const SingleItem = ({ currentItem, addToCart }) => {
   return (
     <div className={styles.singleItem}>
-      <img
-        className={styles.singleItem__image}
-        src={currentItem.image}
-        alt={currentItem.title}
-      />
+      <div className={styles.singleItem__imageContainer}>
+        <img
+          className={styles.singleItem__image}
+          src={currentItem.image}
+          alt={currentItem.title}
+        />
+      </div>
       <div className={styles.singleItem__details}>
         <p className={styles.details__title}>{currentItem.title}</p>
         <p className={styles.details__description}>{currentItem.description}</p>
@@ -21,7 +23,7 @@ const SingleItem = ({ currentItem, addToCart }) => {
           onClick={() => addToCart(currentItem.id)}
           className={styles.details__addBtn}
         >
-          Add To Cart
+          Tilføj Ingrediens
         </button>
       </div>
     </div>

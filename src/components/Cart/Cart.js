@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import styles from "./Cart.module.css";
+import { Link } from "react-router-dom";
 
 import CartItem from "./CartItem/CartItem";
 
@@ -29,6 +30,8 @@ const Cart = ({ cart }) => {
   ]);
 
   return (
+    <Fragment>
+    <h1 className={styles.header_h1}>Valgte ingredienser:</h1>
     <div className={styles.cart}>
       <div className={styles.cart__items}>
         {cart.map((item) => (
@@ -41,11 +44,14 @@ const Cart = ({ cart }) => {
           <span>TOTAL: ({totalItems})</span>
           <span>DKK {totalPrice}</span>
         </div>
-        <button className={styles.summary__checkoutBtn}>
-          Betal
-        </button>
+        <Link to="/order">
+          <button className={styles.summary__checkoutBtn}>
+            Bestil
+          </button>
+        </Link>
       </div>
     </div>
+    </Fragment>
   );
 };
 

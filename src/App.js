@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import SingleItem from "./components/SingleItem/SingleItem";
+import Order from "./components/Order/Order";
 
 import { connect } from "react-redux";
 
@@ -22,6 +23,7 @@ function App({ currentItem }) {
         <Switch>
           <Route exact path="/" component={Products} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/order" component={Order} />
           {!currentItem ? (
             <Redirect to="/" />
           ) : (
