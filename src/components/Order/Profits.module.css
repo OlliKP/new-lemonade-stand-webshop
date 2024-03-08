@@ -1,0 +1,64 @@
+.profit_container{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profit_order{
+    background-color: var(--primary-color);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    padding-block: 2.5rem;
+    width: 80dvw;
+}
+
+.profit_h1 {
+    margin-bottom: 2rem;
+}
+
+.profit_container > div > h2{
+    margin-bottom: 1.5rem;
+}
+
+.profit_container > div > ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.profit_container > div > ul > li{
+    margin-block: 0.5rem;
+}
+
+.profit_container > div > p{
+    font-weight: 700;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.286);
+}
+
+.profit_monthly {
+    background-color: var(--primary-color);
+}
+
+.profit_image {
+    mix-blend-mode: darken;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+@media only screen and (min-width: 1400px) {
+    .profit_container{
+        width: 50dvw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profit_order{
+        background-color: var(--primary-color);
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+  }

@@ -34,3 +34,10 @@ export const loadCurrentItem = (item) => {
         payload: item,
     };
 };
+
+export const storeOrder = (cart) => {
+    return {
+        type: actionTypes.STORE_ORDER,
+        payload: cart,
+    };
+};
