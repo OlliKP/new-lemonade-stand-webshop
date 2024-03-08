@@ -76,6 +76,7 @@ const INITIAL_STATE = {
     },
   ],
   cart: [], // {id, title, descr, price, img, qty}
+  completedOrders: [],
   currentItem: null,
 };
 
@@ -117,6 +118,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentItem: action.payload,
       };
+    case actionTypes.STORE_ORDER:
+      return {
+        ...state,
+        completedOrders: [...state.completedOrders, action.payload],
+        cart: [],
+    };
     default:
       return state;
   }

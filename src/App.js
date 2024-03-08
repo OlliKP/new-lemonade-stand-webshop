@@ -12,6 +12,7 @@ import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import SingleItem from "./components/SingleItem/SingleItem";
 import Order from "./components/Order/Order";
+import Profits from "./components/Order/Profits";
 
 import { connect } from "react-redux";
 
@@ -24,6 +25,7 @@ function App({ currentItem }) {
           <Route exact path="/" component={Products} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/order" component={Order} />
+          <Route exact path="/profits" component={Profits} />
           {!currentItem ? (
             <Redirect to="/" />
           ) : (

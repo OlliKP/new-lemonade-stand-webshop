@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import styles from "./Order.module.css";
+import { Link } from "react-router-dom";
+
 
 const Order = () => {
   return (
@@ -15,6 +17,7 @@ const Order = () => {
               src="https://i.pinimg.com/originals/23/19/1d/23191db567a753365d15acada33ef6c6.gif"
             ></img>
           </div>
+          <Link className={styles.header_btn} to={"/profits"}>Gennemførte Ordrer</Link>
       </div>
     </Fragment>
   );
